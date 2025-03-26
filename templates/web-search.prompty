@@ -1,0 +1,46 @@
+---
+id: my_agent_21
+name: Basic Agent
+description: A basic prompt that uses the gpt-4o chat API to answer questions
+metadata:  
+  authors:
+    - sethjuarez
+    - mwhalin
+  tags:
+    - basic
+    - gpt-4o
+
+model:
+  id: 2024-05-01-preview
+  
+
+inputs:
+  name:
+    type: string
+    sample: User
+    description: The name of the customer
+  question:
+    type: string
+    sample: What are the top headlines for today?
+    required: true
+    description: The question to answer
+
+tools:
+  - name: data_source
+    runtime: server
+    type: bing_search
+    configuration:
+      connection_string: ${env:BING_CONNECTION_STRING}
+      bing_resource: ${env:BING_RESOURCE}
+
+template:
+  format: mustache
+  parser: prompty
+---
+system:
+You are an AI assistant that can write code to help answer general questions.
+
+user[name="{{name}}"]:
+{{question}}
+
+![thread]
