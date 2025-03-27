@@ -7,7 +7,7 @@ model:
   api: chat
   connection:
     type: azure_openai
-    azure_deployment: gpt-4o
+    azure_deployment: gpt-4o-mini
 
 inputs:
   firstName:
@@ -24,8 +24,8 @@ inputs:
   question:
     type: string
     description: The question to answer
+    sample: What should I buy for camping?
     required: true
-  context: ${file:products.json}
   
 template:
   format: jinja2
@@ -42,5 +42,10 @@ flair with appropriate emojis.
 You are helping {{firstName}} {{lastName}} to find answers to their questions.
 Use their name to address them in your responses.
 
-user[name="{{firstName}} {{lastName}}"]:
+You should decide if its a SUPPORT or a SALES question. Please respond with
+SUPPORT or SALES.
+
+user:
 {{question}}
+Please respond with SUPPORT or SALES. No need to explain anything, just the word
+SUPPORT or SALES

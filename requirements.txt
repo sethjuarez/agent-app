@@ -1,1 +1,1 @@
-./whl/prompty-20250325.63028-py3-none-any.whl[azure]
+./whl/prompty-0.1.2.dev0-py3-none-any.whl[azure]
