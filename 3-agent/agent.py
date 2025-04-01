@@ -1,4 +1,5 @@
 import prompty
+import prompty.azure
 from prompty.tracer import Tracer, trace, PromptyTracer
 
 tracy = PromptyTracer()
@@ -13,7 +14,7 @@ def execute_agent():
     p = prompty.load("agent.prompty")
     # set the tool function
     p.set_tool_value("get_current_weather", get_current_weather)
-    result = prompty.execute(p, inputs={"question": "What's the weather like in Japan and Mexico?"}, merge_sample=True)
+    result = prompty.execute(p, inputs={"question": "What was the weather like in Tokyo?"}, merge_sample=True)
     return result
 
 if __name__ == "__main__":
