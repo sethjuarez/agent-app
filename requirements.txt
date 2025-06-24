@@ -1,1 +1,3 @@
-./whl/prompty-0.1.2.dev0-py3-none-any.whl[azure]
+prompty==1.0.0a2
+colorama
+types-colorama
