@@ -24,7 +24,7 @@ inputs:
   question:
     type: string
     description: The question to answer
-    sample: MY TENTZ IS BROKEN YO!?
+    sample: I want the best tent ever - what do ya got?
     required: true
   
 template:
