@@ -10,7 +10,7 @@ model:
     azure_deployment: gpt-4.1-mini
 
 inputs:
-  question: How would you explain what a planet is?
+  question: How many planets are in the solar system?
   context: |
     The solar system consists of the Sun and the objects that orbit it, including eight planets, their moons, 
     dwarf planets, and countless small bodies like asteroids and comets. The eight planets are Mercury, Venus, 
