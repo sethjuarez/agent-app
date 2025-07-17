@@ -13,7 +13,7 @@ model:
     api_version: 2024-08-01-preview
 
 inputs:
-  statement: Alice and Bob are going to a science fair on Friday.
+  statement: Alice and Bob are going to a science fair next Tuesday.
 
 outputs:
   name:
@@ -22,31 +22,23 @@ outputs:
   date:
     type: string
     description: The date of the event.
-  location:
-    type: object
-    description: The location of the event.
-    properties:
-      city:
-        type: string
-        description: The city where the event is taking place.
-      state:
-        type: string
-        description: The state where the event is taking place.
-      country:
-        type: string
-        description: The country where the event is taking place.
-  
-  activities:
+  reasoning:
     type: array
-    description: A list of activities that could take place at the event.
+    description: The reasoning behind the date extraction.
     items:
       type: string
-      description: A brief description of the activity.
+      description: A step in the reasoning process.
+  attendees:
+    type: array
+    description: A list of people attending the event.
+    items:
+      type: string
+      description: The name of an attendee.
 ---
 system:
-Extract the event information. Also, provide a list of activities that could take place at the event.
-Feel free to use creative and descriptive language to make the output engaging.
-Also, feel free to make up a potential location for the event, including city, state, and country.
+Extract the event information, please include the name of the event, the date, and the attendees.
+Respond with a a structured output. Today's date is Friday, July 18, 2025. Use the reasoning to 
+explain how you arrived at the date. Format the date output as YYYY-MM-DD.
 
 user:
 {{statement}}
