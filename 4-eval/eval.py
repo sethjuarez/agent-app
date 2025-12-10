@@ -2,7 +2,6 @@ import prompty
 import prompty.azure # type: ignore
 from prompty.tracer import trace
 
-
 @trace
 async def get_information(question: str, context: str):
     response = await prompty.execute_async(
