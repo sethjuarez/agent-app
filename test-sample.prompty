@@ -1,0 +1,30 @@
+---
+name: test-prompt
+description: A sample v2 prompty file for testing the extension
+model: 
+  id: gpt-4.1
+  apiType: chat
+template:
+  format: jinja2
+  parser: prompty
+metadata:
+  authors:
+    - test
+  tags:
+    - sample
+    - v2
+inputs:
+  - name: question
+    kind: string
+    example: What can you tell me about solar energy?
+  - name: context
+    kind: string
+    example: Solar energy is the energy that is harnessed from the sun's rays. It is a renewable and sustainable source of energy that can be used for various applications, including electricity generation, heating, and cooling. Solar energy can be captured using solar panels, which convert sunlight into electricity. It is an environmentally friendly alternative to fossil fuels and can help reduce greenhouse gas emissions.
+---
+system:
+You are a helpful assistant that answers questions concisely.
+Use the following context if provided: {{context}}
+YAY! Like a sunny day! ☀️
+
+user[name="Alice"]:
+Riddle me this: {{question}}

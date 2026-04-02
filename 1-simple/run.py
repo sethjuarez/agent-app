@@ -2,6 +2,8 @@ import asyncio
 import prompty
 import prompty.azure
 from prompty.tracer import Tracer, trace, PromptyTracer
+from dotenv import load_dotenv
+load_dotenv()
 
 tracy = PromptyTracer()
 Tracer.add("prompty", tracy.tracer)

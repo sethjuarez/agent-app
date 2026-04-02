@@ -2,3 +2,5 @@
 .runs/
 .env
 .mypy_cache/
+.prompty/
+__pycache__/

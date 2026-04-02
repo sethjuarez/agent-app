@@ -1,13 +1,14 @@
 ---
-id: informationagent
 name: Basic Information Agent
 description: A basic prompt that uses the gpt-4o chat API to answer questions
 
 model:
-  api: chat
+  id: gpt-4.1-mini
+  apiType: chat
   connection:
-    type: azure_openai
-    azure_deployment: gpt-4.1-mini
+    kind: key
+    endpoint: ${env:AZURE_OPENAI_ENDPOINT}
+    apiKey: ${env:AZURE_OPENAI_KEY}
 
 inputs:
   question: How would you explain what a planet is?
@@ -16,11 +17,13 @@ inputs:
     dwarf planets, and countless small bodies like asteroids and comets. The eight planets are Mercury, Venus, 
     Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. Each planet has unique characteristics such as size, 
     composition, atmosphere, and distance from the Sun.
-  
+
 template:
-  format: jinja2
-  parser: prompty
-  
+  format:
+    kind: jinja2
+  parser:
+    kind: prompty
+
 ---
 system:
 You are an AI assistant who helps people find information.

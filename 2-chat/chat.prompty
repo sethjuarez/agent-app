@@ -1,36 +1,31 @@
 ---
-id: chatagent
 name: Basic Agent
 description: A basic prompt that uses the gpt-4o chat API to answer questions
 
 model:
-  api: chat
-  connection:
-    type: azure_openai
-    azure_deployment: gpt-4o-mini
+  id: gpt-4.1
+  apiType: chat
 
 inputs:
   firstName:
-    type: string
-    default: User
-    sample: April
+    kind: string
+    default: April
     description: The first name of the customer
   lastName:
-    type: string
-    sample: Kwong
+    kind: string
+    default: Kwong
     required: true
-    strict: false
     description: The last name of the customer
   query:
-    type: string
-    description: The question to answer
-    sample: What should I buy for camping?
-    required: true
-  
+    kind: thread
+    description: The conversation thread
+
 template:
-  format: jinja2
-  parser: prompty
-  
+  format:
+    kind: jinja2
+  parser:
+    kind: prompty
+
 ---
 system:
 You are an AI assistant who helps people find information.
@@ -42,5 +37,4 @@ flair with appropriate emojis.
 You are helping {{firstName}} {{lastName}} to find answers to their questions.
 Use their name to address them in your responses.
 
-![thread]
 {{query}}

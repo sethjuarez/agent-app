@@ -6,42 +6,25 @@ metadata:
     - vgiraud
 
 model:
-  api: chat
-  connection:
-    type: azure
-    azure_deployment: gpt-4o
-    api_version: 2024-08-01-preview
+  id: gpt-4.1
+  apiType: chat
 
 inputs:
   statement: Alice and Bob are going to a science fair on Friday.
 
 outputs:
   name:
-    type: string
+    kind: string
     description: The name of the event.
   date:
-    type: string
+    kind: string
     description: The date of the event.
   location:
-    type: object
+    kind: object
     description: The location of the event.
-    properties:
-      city:
-        type: string
-        description: The city where the event is taking place.
-      state:
-        type: string
-        description: The state where the event is taking place.
-      country:
-        type: string
-        description: The country where the event is taking place.
-  
   activities:
-    type: array
+    kind: array
     description: A list of activities that could take place at the event.
-    items:
-      type: string
-      description: A brief description of the activity.
 ---
 system:
 Extract the event information. Also, provide a list of activities that could take place at the event.

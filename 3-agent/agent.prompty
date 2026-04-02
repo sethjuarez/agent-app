@@ -5,33 +5,33 @@ metadata:
   authors:
     - sethjuarez
     - jietong
-    
+
 model:
-  api: agent
-  connection:
-    type: azure
-    azure_deployment: gpt-4o-mini
+  id: gpt-4.1
+  apiType: chat
 
 tools:
-  - id: get_current_weather
-    type: function
+  - name: get_current_weather
+    kind: function
     description: Get the current weather for a given city.
     parameters:
-      city:
-        type: string
-        description: The name of the city to get the weather for.
-        required: true
-      unit:
-        type: string
-        description: The unit of measurement for the temperature (Celsius or Fahrenheit).
-        enum:
-          - Celsius
-          - Fahrenheit
+      properties:
+        - name: city
+          kind: string
+          description: The name of the city to get the weather for.
+          required: true
+        - name: unit
+          kind: string
+          description: The unit of measurement for the temperature (Celsius or Fahrenheit).
+          enumValues:
+            - Celsius
+            - Fahrenheit
 
 inputs:
   firstName: Seth
   lastName: Juarez
-  question: What's the weather like in San Francisco, Tokyo, and Paris?
+  conversation:
+    kind: thread
 ---
 system:
 You are a helpful assistant that helps the user with the help of some functions.
@@ -45,5 +45,4 @@ to the image generation tool.
 You are helping {{firstName}} {{lastName}} to find answers to their questions.
 Use their name to address them in your responses.
 
-![thread]
-{{question}}
+{{conversation}}

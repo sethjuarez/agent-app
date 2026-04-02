@@ -1,7 +1,11 @@
 import prompty
 import prompty.azure # type: ignore
-from prompty.tracer import trace
+from prompty.tracer import trace, Tracer, PromptyTracer
+from dotenv import load_dotenv
+load_dotenv()
 
+tracy = PromptyTracer()
+Tracer.add("prompty", tracy.tracer)
 
 @trace
 async def get_information(question: str, context: str):
